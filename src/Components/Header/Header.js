@@ -23,12 +23,8 @@ export default class Header extends Component {
                             <li className="nav-item">
                                 <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/register">Register</NavLink>
                             </li>
-                            <li className="nav-item dropdown">
-                                <NavLink className="nav-link dropdown-toggle" to="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</NavLink>
-                                <div className="dropdown-menu" aria-labelledby="dropdownId">
-                                    <NavLink className="dropdown-item" to="/home">Action 1</NavLink>
-                                    <NavLink className="dropdown-item" to="/home">Action 2</NavLink>
-                                </div>
+                            <li className="nav-item">
+                                <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/lifecycle">Lifecycle</NavLink>
                             </li>
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
