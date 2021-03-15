@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // Thẻ thay thế thẻ a trong routing của react router dom
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class Header extends Component {
     render() {
@@ -12,19 +12,26 @@ export default class Header extends Component {
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item active">
-                                <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/home">Home <span className="sr-only">(current)</span></NavLink>
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/home">Home <span className="sr-only">(current)</span></NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/contact">Contact</NavLink>
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/contact">Contact</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/login">Login</NavLink>
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/login">Login</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/register">Register</NavLink>
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/register">Register</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeStyle={{fontWeight:'bold'}} activeClassName="bg-dark text-light" className="nav-link" to="/lifecycle">Lifecycle</NavLink>
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/lifecycle">Lifecycle</NavLink>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/usestatedemo" >UseState Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/btchonxe" >Demo ChonXe</NavLink>
+                                </div>
                             </li>
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
