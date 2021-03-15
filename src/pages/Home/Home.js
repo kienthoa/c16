@@ -1,34 +1,38 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {connect} from 'react-redux'
+import {layDanhSachPhimAction} from '../../redux/action/phimActions'
 
-export default class Home extends Component {
+class Home extends Component {
     
-    state = {
-        arrFilms: []
-    }
+    // state = {
+    //     arrFilms: []
+    // }
 
     loadFilm = () => {
-
-        // Dùng axios gọi lấy thông tin từ backend về qua api
-        const promise = axios({
-            url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
-            method: 'GET'
-        }); 
-        // Xử lý thành công
-        promise.then((result) => {
-            console.log("resut: ", result.data);
-            this.setState({
-                arrFilms: result.data
-            })
-        })
-        // Xử lý lỗi
-        promise.catch((error) => {
-            console.log("error: ", error.response.data);
-        })
+        this.props.dispatch(layDanhSachPhimAction())
+        // // Dùng axios gọi lấy thông tin từ backend về qua api
+        // const promise = axios({
+        //     url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+        //     method: 'GET'
+        // }); 
+        // // Xử lý thành công
+        // promise.then((result) => {
+        //     console.log("resut: ", result.data);
+        //     // Lấy dữ liệu về => dispatch lên reducer
+        //     this.props.dispatch({
+        //         type: 'LAY_DANH_SACH_PHIM',
+        //         mangPhim:result.data
+        //     })
+        // })
+        // // Xử lý lỗi
+        // promise.catch((error) => {
+        //     console.log("error: ", error.response.data);
+        // })
     }
 
     renderFilms = () => {
-        return this.state.arrFilms.map((item, index) => {
+        return this.props.mangPhim.map((item, index) => {
             return <div className="col-4 my-3" key={index}>
                     <div className="card text-white bg-dark">
                         <img className="card-img-top" src={item.hinhAnh} alt={item.tenPhim} width={150} height={200}/>
@@ -61,3 +65,11 @@ export default class Home extends Component {
     }
 
 }
+
+const mapStateToProps = (state) => {
+    return {
+        mangPhim: state.PhimReducer.mangPhim
+    }
+}
+
+export default connect(mapStateToProps,null) (Home);
