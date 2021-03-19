@@ -26,10 +26,15 @@ export default class Header extends Component {
                             <li className="nav-item">
                                 <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/lifecycle">Lifecycle</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/details">Details</NavLink>
+                            </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hook</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                                     <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/usestatedemo" >UseState Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/useeffecthome" >UseEffect Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/reduxhookhome" >Redux Hook</NavLink>
                                     <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/btchonxe" >Demo ChonXe</NavLink>
                                 </div>
                             </li>
