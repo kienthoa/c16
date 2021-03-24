@@ -34,7 +34,11 @@ export default class Header extends Component {
                                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                                     <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/usestatedemo" >UseState Hook</NavLink>
                                     <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/useeffecthome" >UseEffect Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/usecallback" >UseCallBack Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/usememo" >UseMemo Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/useref" >UseRef Hook</NavLink>
                                     <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/reduxhookhome" >Redux Hook</NavLink>
+                                    <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/demoprops" >Props Component</NavLink>
                                     <NavLink activeClassName="bg-dark text-light" class="dropdown-item" to="/btchonxe" >Demo ChonXe</NavLink>
                                 </div>
                             </li>
