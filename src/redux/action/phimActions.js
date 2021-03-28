@@ -10,7 +10,7 @@ export const layDanhSachPhimAction = () => {
         })
         setTimeout(async () => {
             const result = await axios({
-                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP08',
                 method: 'GET'
             }) 
     
@@ -42,6 +42,25 @@ export const layThongTinChiTietPhimAction = (maPhim) => {
             dispatch({
                 type: 'LAY_CHI_TIET_PHIM',
                 chiTietPhim: result.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export const layThongTinPhongVeAction = (maLichChieu) => {
+    return async (dispatch) => {
+
+        try {
+            let result = await axios({
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+                method: 'GET'
+            }) 
+
+            dispatch({
+                type: 'LAY_THONG_TIN_PHONG_VE',
+                thongTinPhongVe: result.data
             })
         } catch (error) {
             console.log(error)
