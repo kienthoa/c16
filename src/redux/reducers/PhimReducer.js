@@ -2,7 +2,7 @@
 const stateDefault = {
     mangPhim: [],
     chiTietPhim: {tenPhim:'default',heThongRapChieu:[]},
-    thongTinPhongve: {}
+    thongTinPhongVe: {}
 }
 
 
@@ -17,7 +17,7 @@ export const PhimReducer = (state = stateDefault, action) => {
             return {...state}
         }
         case 'LAY_THONG_TIN_PHONG_VE': {
-            state.thongTinPhongve = action.thongTinPhongve;
+            state.thongTinPhongVe = action.thongTinPhongVe;
             return {...state}
         }
 
