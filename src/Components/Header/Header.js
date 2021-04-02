@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-// Thẻ thay thế thẻ a trong routing của react router dom
+import React from 'react'
+import {useSelector} from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-export default class Header extends Component {
-    render() {
+export default function Header() {
+
+        const {taiKhoan} = useSelector(state => state.NguoiDungReducer)    
+    
         return (
             <div>
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -12,13 +14,13 @@ export default class Header extends Component {
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item active">
-                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/home">Home <span className="sr-only">(current)</span></NavLink>
+                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/home">Home <span className="sr-only">(current)</span></Nav>
                             </li>
                             <li className="nav-item">
                                 <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/contact">Contact</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/login">Login</NavLink>
+                                {taiKhoan !== '' ? <span className='nav-link'>{taiKhoan}</span> : <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/login">Login</NavLink>}
                             </li>
                             <li className="nav-item">
                                 <NavLink activeStyle={{ fontWeight: 'bold' }} activeClassName="bg-dark text-light" className="nav-link" to="/register">Register</NavLink>
@@ -52,5 +54,5 @@ export default class Header extends Component {
             </div>
 
         )
-    }
+
 }

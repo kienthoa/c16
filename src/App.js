@@ -1,5 +1,5 @@
 import './App.scss';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Router, Switch} from 'react-router-dom';
 import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -19,10 +19,13 @@ import ParentComponent from './pages/HOC/ParentComponent';
 import { HomeTemplate } from './templates/HomeTemplate';
 import { AdminTemplate } from './templates/AdminTemplate';
 import Checkout from './pages/Checkout/Checkout';
+import { createBrowserHistory } from 'history';
+// Đối tượng giúp chuyển hướng trang bất kì file nào
+export const history = createBrowserHistory()
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
     <div className="App">
       <Loading/>
       {/* <Header/> */}
@@ -56,7 +59,7 @@ function App() {
       </Switch>
 
     </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
