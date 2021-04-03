@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
+import { Redirect } from 'react-router'
+import { taiKhoan } from '../../configs/setting'
 import { layThongTinPhongVeAction } from '../../redux/action/phimActions'
 import './Checkout.css'
 
@@ -60,6 +62,10 @@ export default function Checkout(props) {
         return danhSachGheDangDat.reduce((tongTien,gheDangDat,index) => {
             return tongTien += gheDangDat.giaVe;
         },0)
+    }
+
+    if(!localStorage.getItem(taiKhoan)) {
+        return <Redirect to='/login'/>
     }
 
     return (
