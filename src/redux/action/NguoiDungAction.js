@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { history } from '../../App';
 import { accessToken, domain, taiKhoan } from '../../configs/setting';
 
 export const dangNhapAction = (nguoiDung) => {

@@ -3,6 +3,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import { Redirect } from 'react-router'
 import { taiKhoan } from '../../configs/setting'
 import { layThongTinPhongVeAction } from '../../redux/action/phimActions'
+import { datVeAction } from '../../redux/action/QuanLyDatVeAction'
 import './Checkout.css'
 
 export default function Checkout(props) {
@@ -52,7 +53,7 @@ export default function Checkout(props) {
                     })
                 }}>
                     {ghe.daDat === true ? 'X' : ghe.stt}
-                    </button>
+                </button>
                 {(index + 1) % 16 === 0 ? <br /> : ''}
             </Fragment>
         })
@@ -83,14 +84,27 @@ export default function Checkout(props) {
                     <img className='w-100 my-3' src={thongTinPhongVe.thongTinPhim?.hinhAnh}/>
                     <h3>Tên phim: {thongTinPhongVe.thongTinPhim?.tenPhim}</h3>
                     <div>Địa chỉ: {thongTinPhongVe.thongTinPhim?.diaChi}</div>
-                    <div>Ngày giờ chiếu: </div>
+                    <div>Ngày giờ chiếu: {thongTinPhongVe.thongTinPhim?.ngayChieu} -{" "}
+            {thongTinPhongVe.thongTinPhim?.gioChieu}</div>
                     <hr/>
                     <h3 className='text-warning text-left'>
                         Ghế: {renderGheDangDat()}
                         <hr/>
                     </h3>
                     <div>
-                        <button className='btn btn-danger w-100 display-4'>Đặt vé</button>
+                        <button className='btn btn-danger w-100 display-4' onClick={() => {
+                            // Lấy ra thông tin đăng nhập từ localStrage chuyển về obj
+                            let userLogin = JSON.parse(localStorage.getItem(taiKhoan));      
+
+                            // Tạo ra data như backend yêu cầu từ thông tin người dùng đặt ghế
+                            let thongTinDatVe = {
+                                maLichChieu: props.match.params.id,
+                                danhSachVe: danhSachGheDangDat,
+                                taiKhoanNguoiDung: userLogin.taiKhoan
+                            }
+                            console.log('run')
+                            dispatch(datVeAction(thongTinDatVe));
+                        }}>Đặt vé</button>
                     </div>
                 </div>
             </div>
