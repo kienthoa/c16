@@ -1,0 +1,22 @@
+.ghe {
+    width: 35px;
+    height: 35px;
+    margin: 15px;
+    border-radius: 5px;
+    background: rgb(168, 126, 10);
+    color: #fff;
+    cursor: pointer;
+}
+
+.gheDaDat { /*Ghế đã bị người ta đặt*/
+    background: rgb(156, 152, 152) !important;
+    cursor: no-drop;
+}
+
+.gheDangDat {
+    background: rgb(21, 238, 21) !important;
+}
+
+.gheVip {
+    background: rgba(196, 6, 6, 0.966);
+}

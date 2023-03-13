@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {layDanhSachPhimAction} from '../../redux/action/phimActions'
+import { NavLink } from 'react-router-dom'
 
 class Home extends Component {
     
@@ -38,7 +39,9 @@ class Home extends Component {
                         <img className="card-img-top" src={item.hinhAnh} alt={item.tenPhim} width={150} height={200}/>
                         <div className="card-body">
                             <h4 className="card-title">{item.tenPhim}</h4>
-                            <p className="card-text" />
+                            <NavLink className='btn btn-danger' to={`details/${item.maPhim}`}>
+                                Đặt vé
+                            </NavLink>
                         </div>
                     </div>
                     </div>
